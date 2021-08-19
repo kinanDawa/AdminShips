@@ -29,12 +29,10 @@ public class CountryController {
 		
 		return "Country";
 	}
-	
-	@PostMapping("/countries/addNew")
-	public String addNew(Country country) {
-		countryService.save(country);
-		return "redirect:/countries";
-	}
+	/*
+	 * @PostMapping("/countries/addNew") public String addNew(Country country) {
+	 * countryService.save(country); return "redirect:/countries"; }
+	 */
 	
 	//after getting this Id we don't want it to return a JSON
 	//or redirect to a page that will display a JSON so only return it and capture it 
