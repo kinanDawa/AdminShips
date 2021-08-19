@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.InvoiceStatus;
-import com.kindsonthegenius.fleetapp.repositories.InvoiceStatusRepository;
+import com.spring.adminships.models.InvoiceStatus;
+import com.spring.adminships.repositories.InvoiceStatusRepository;
 
 @Service
 public class InvoiceStatusService {

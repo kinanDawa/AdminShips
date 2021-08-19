@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.JobTitle;
-import com.kindsonthegenius.fleetapp.repositories.JobTitleRepository;
+import com.spring.adminships.models.JobTitle;
+import com.spring.adminships.repositories.JobTitleRepository;
 
 @Service
 public class JobTitleService {

@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.Supplier;
-import com.kindsonthegenius.fleetapp.repositories.SupplierRepository;
+import com.spring.adminships.models.Supplier;
+import com.spring.adminships.repositories.SupplierRepository;
 
 @Service
 public class SupplierService {

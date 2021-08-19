@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.User;
-import com.kindsonthegenius.fleetapp.repositories.UserRepository;
+import com.spring.adminships.models.User;
+import com.spring.adminships.repositories.UserRepository;
 
 @Service
 public class UserService {

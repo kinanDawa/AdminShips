@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.VehicleMovement;
-import com.kindsonthegenius.fleetapp.repositories.VehicleMovementRepository;
+import com.spring.adminships.models.VehicleMovement;
+import com.spring.adminships.repositories.VehicleMovementRepository;
 
 @Service
 public class VehicleMovementService {

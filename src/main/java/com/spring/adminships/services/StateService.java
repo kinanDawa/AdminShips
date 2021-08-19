@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.State;
-import com.kindsonthegenius.fleetapp.repositories.StateRepository;
+import com.spring.adminships.models.State;
+import com.spring.adminships.repositories.StateRepository;
 
 @Service
 public class StateService {

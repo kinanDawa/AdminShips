@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.Location;
-import com.kindsonthegenius.fleetapp.repositories.LocationRepository;
+import com.spring.adminships.models.Location;
+import com.spring.adminships.repositories.LocationRepository;
 
 
 @Service
