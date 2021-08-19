@@ -1,4 +1,4 @@
-package com.kindsonthegenius.fleetapp.models;
+package com.spring.adminships.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

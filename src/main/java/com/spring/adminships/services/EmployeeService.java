@@ -1,4 +1,4 @@
-package com.kindsonthegenius.fleetapp.services;
+package com.spring.adminships.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kindsonthegenius.fleetapp.models.Employee;
-import com.kindsonthegenius.fleetapp.repositories.EmployeeRepository;
+import com.spring.adminships.models.Employee;
+import com.spring.adminships.repositories.EmployeeRepository;
 
 @Service
 public class EmployeeService {

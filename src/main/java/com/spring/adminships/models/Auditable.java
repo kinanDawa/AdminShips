@@ -1,5 +1,6 @@
+package com.spring.adminships.models;
 
-  package com.spring.adminships.models;
+  
   
   import java.util.Date;
   

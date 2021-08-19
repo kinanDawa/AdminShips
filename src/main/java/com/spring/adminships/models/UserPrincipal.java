@@ -1,3 +1,4 @@
+package com.spring.adminships.models;
 /*
  * package com.kindsonthegenius.fleetapp.models;
  * 

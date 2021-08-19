@@ -1,4 +1,4 @@
-package com.kindsonthegenius.fleetapp.services;
+package com.spring.adminships.services;
 
 import java.util.List;
 import java.util.Optional;
