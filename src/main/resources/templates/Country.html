@@ -450,30 +450,29 @@
       <div class="modal-body">
         <form th:action="@{/countries/addNew}" method="post">
       
-          
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="recipient-name" name="desciption">
+            <input type="text" class="form-control" id="desciption" name="desciption">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="recipient-name" name="capital">
+            <input type="text" class="form-control" id="capital" name="capital">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="recipient-name" name="code">
+            <input type="text" class="form-control" id="code" name="code">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Continent:</label>
-            <input type="text" class="form-control" id="recipient-name" name="continent">
+            <input type="text" class="form-control" id="continent" name="continent">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nationality:</label>
-            <input type="text" class="form-control" id="recipient-name" name="nationality">
+            <input type="text" class="form-control" id="nationality" name="nationality">
           </div>
           
            <div class="form-group">
@@ -505,10 +504,17 @@
       
       <div class="modal-body">
         <form th:action="@{/countries/update}" method="post">
+           
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Id:</label>
+            <input type="text" class="form-control" id="idEdit" name="id" readonly>
+          </div>
+          
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Description:</label>
             <input type="text" class="form-control" id="descriptionEdit" name="desciption">
           </div>
+          
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
