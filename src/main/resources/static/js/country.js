@@ -1,12 +1,10 @@
 $('document').ready(function(){
 	
 	$('table #editButton').on('click',function(event){
-		event.preventDefault();
-	
-		// /countries/findById/?id=1
-		var href=$(this).attr('href');
+	     	 event.preventDefault();
+			var href=$(this).attr('href');
 		
-		$get(href,function(country,status){
+		$.get(href,function(country){
 			$('#idEdit').val(country.id);
 			$('#capitalEdit').val(country.capital);
 			$('#descriptionEdit').val(country.description);

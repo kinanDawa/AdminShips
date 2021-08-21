@@ -441,7 +441,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New Country</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -452,27 +452,27 @@
       
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="desciption" name="desciption">
+            <input type="text" class="form-control" id="descriptionadd" name="description">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capital" name="capital">
+            <input type="text" class="form-control" id="capitaladd" name="capital">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="code" name="code">
+            <input type="text" class="form-control" id="codeadd" name="code">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Continent:</label>
-            <input type="text" class="form-control" id="continent" name="continent">
+            <input type="text" class="form-control" id="continentadd" name="continent">
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nationality:</label>
-            <input type="text" class="form-control" id="nationality" name="nationality">
+            <input type="text" class="form-control" id="nationalityadd" name="nationality">
           </div>
           
            <div class="form-group">
@@ -496,25 +496,24 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update Country</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       
       <div class="modal-body">
-        <form th:action="@{/countries/update}" method="post">
-           
-           <div class="form-group">
+        <form th:action="@{/countries/update}" method="put">
+      
+       <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id:</label>
             <input type="text" class="form-control" id="idEdit" name="id" readonly>
           </div>
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="descriptionEdit" name="desciption">
+            <input type="text" class="form-control" id="descriptionEdit" name="description">
           </div>
-          
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
