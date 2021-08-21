@@ -11,12 +11,13 @@ $('document').ready(function(){
 			$('#codeEdit').val(country.code);
 			$('#continentEdit').val(country.continent);
 			$('#nationalityEdit').val(country.nationality);
-
-			
-		});
-		
+		});		
 		$('#editModal').modal();
 	});
-	
-	
+	$('table #deleteButton').on('click',function(event){
+	     	 event.preventDefault();
+ 	 //when the modalButton is clicked then delete the modal that is displayed
+	     	 
+	     	 $('#deleteModal').modal();
+	});
 });
