@@ -13,45 +13,45 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.adminships.models.*;
-import com.spring.adminships.services.CountryService;
+import com.spring.adminships.services.StateService;
 
 @Controller
 public class StateController {
 
 	
-	  @Autowired private CountryService countryService;
+	  @Autowired private StateService stateService;
 	  
-	@GetMapping("/countries")
-	public String getCountries(Model model) {
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-		return "Country";
+	@GetMapping("/states")
+	public String getStates(Model model) {
+	  List <State> stateList =stateService.getStates();
+	  model.addAttribute("states",stateList);
+		return "State";
 	}
 	
-	  @PostMapping("/countries/addNew") 
-	  public String addNew(Country country) {
-	  countryService.save(country); 
-	  return "redirect:/countries"; }
+	  @PostMapping("/states/addNew") 
+	  public String addNew(State state) {
+	  stateService.save(state); 
+	  return "redirect:/states"; }
 
 	// after getting this Id we don't want it to return a JSON
 	// or redirect to a page that will display a JSON so only return it and capture
 	// it
 	
-	  @RequestMapping("/countries/findById")
+	  @RequestMapping("/states/findById")
 	  @ResponseBody
-	  public Optional<Country> findById(int id) { 
-		  return countryService.findById(id);
+	  public Optional<State> findById(int id) { 
+		  return stateService.findById(id);
 	  }
 	  
-	  @RequestMapping(value= "/countries/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Country country) {
-		  countryService.save(country); 
-		  return "redirect:/countries"; 
+	  @RequestMapping(value= "/states/update", method= {RequestMethod.PUT,RequestMethod.GET})
+	  public String update(State state) {
+		  stateService.save(state); 
+		  return "redirect:/states"; 
 		  }
 	  
-	  @RequestMapping(value= "/countries/delete", method= {RequestMethod.DELETE,RequestMethod.GET})
+	  @RequestMapping(value= "/states/delete", method= {RequestMethod.DELETE,RequestMethod.GET})
 	  public String delete(int id) {
-		  countryService.delete(id); 
-		  return "redirect:/countries"; 
+		  stateService.delete(id); 
+		  return "redirect:/states"; 
 		  }
 }

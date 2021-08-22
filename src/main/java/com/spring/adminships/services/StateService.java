@@ -16,7 +16,7 @@ public class StateService {
 	private StateRepository stateRepository;
 	
 	//Get All States
-	public List<State> findAll(){
+	public List<State> getStates(){
 		return stateRepository.findAll();
 	}	
 	
