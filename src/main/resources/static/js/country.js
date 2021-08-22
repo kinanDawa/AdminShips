@@ -17,7 +17,10 @@ $('document').ready(function(){
 	$('table #deleteButton').on('click',function(event){
 	     	 event.preventDefault();
  	 //when the modalButton is clicked then delete the modal that is displayed
-	     	 
+	         var href=$(this).attr('href');
+	         
+	     	$('#confirmDeleteButton').attr('href',href);
+
 	     	 $('#deleteModal').modal();
 	});
 });
