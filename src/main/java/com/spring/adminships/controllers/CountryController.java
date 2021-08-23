@@ -54,4 +54,11 @@ public class CountryController {
 		  countryService.delete(id); 
 		  return "redirect:/countries"; 
 		  }
+	  
+			
+			  @PostMapping("/countries/details") 
+			  public String showDetails( ) {
+			  
+			  return "redirect:/countries"; }
+			 
 }

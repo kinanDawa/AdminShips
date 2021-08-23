@@ -14,6 +14,22 @@ $('document').ready(function(){
 		});		
 		$('#editModal').modal();
 	});
+	
+	$('table #detailsButton').on('click',function(event){
+	     	 event.preventDefault();
+			var href=$(this).attr('href');
+		
+		$.get(href,function(country){
+			$('#idDetails').val(country.id);
+			$('#capitalDetails').val(country.capital);
+			$('#descriptionDetails').val(country.description);
+			$('#codeDetails').val(country.code);
+			$('#continentDetails').val(country.continent);
+			$('#nationalityDetails').val(country.nationality);
+		});		
+		$('#detailsModal').modal();
+	});
+	
 	$('table #deleteButton').on('click',function(event){
 	     	 event.preventDefault();
  	 //when the modalButton is clicked then delete the modal that is displayed
