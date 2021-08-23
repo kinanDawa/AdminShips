@@ -396,7 +396,7 @@
         
             <div class="row"> 
         <div class="col-lg-12"> 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">New State</button> 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add State</button> 
         
         <table class="table"> 
                 <thead> 
@@ -432,7 +432,7 @@
   </section>
   
     <!-- Add Modal section Start -->  
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -443,10 +443,26 @@
       </div>
       
       <div class="modal-body">
-        <form th:action="@{/countries/addNew}" method="post">
+        <form th:action="@{/states/addNew}" method="post">
       
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Description:</label>
+            <label for="recipient-name" class="col-form-label">Id:</label>
+            <input type="text" class="form-control" id="descriptionadd" name="description">
+          </div>
+          
+             <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Country:</label>
+            <select class="form-control" id="addCountryEdit" name="countryid" ><!--this is the key countryid -->
+            <option>-SELECT-</option>
+            <option th:each="country : ${countries}"
+            th:value="${country.id}"
+            th:text ="${country.description}"></option>
+            </select>
+            <input type="text" class="form-control" id="descriptionadd" name="description">
+          </div>
+          
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
             <input type="text" class="form-control" id="descriptionadd" name="description">
           </div>
           
@@ -458,16 +474,6 @@
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Code:</label>
             <input type="text" class="form-control" id="codeadd" name="code">
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Continent:</label>
-            <input type="text" class="form-control" id="continentadd" name="continent">
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nationality:</label>
-            <input type="text" class="form-control" id="nationalityadd" name="nationality">
           </div>
           
            <div class="form-group">
