@@ -21,13 +21,12 @@ $('document').ready(function(){
 	     	 event.preventDefault();
 			var href=$(this).attr('href');
 		
-		$.get(href,function(country){
-			$('#idDetails').val(country.id);
-			$('#capitalDetails').val(country.capital);
-			$('#descriptionDetails').val(country.description);
-			$('#codeDetails').val(country.code);
-			$('#continentDetails').val(country.continent);
-			$('#nationalityDetails').val(country.nationality);
+		$.get(href,function(state){
+			$('#idDetails').val(state.id);
+			$('#capitalDetails').val(state.capital);
+			$('#nameDetails').val(state.name);
+			$('#codeDetails').val(state.code);
+			$('#detailsDetails').val(state.details);
 		});		
 		$('#detailsModal').modal();
 	});
