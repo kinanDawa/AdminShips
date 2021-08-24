@@ -414,9 +414,9 @@
         <td th:text="${state.details}"></td>
 		<td>
 		<div class="btn-group"> 
-		<a th:href="@{/countries/findById/(id=${state.id})}" class ="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+		<a th:href="@{/states/findById/(id=${state.id})}" class ="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
 		<a  class ="btn btn-succes" id="detailButton"><i class="icon_document_alt"></i></a>
-		<a th:href="@{/countries/delete/(id=${state.id})}" class ="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+		<a th:href="@{/states/delete/(id=${state.id})}" class ="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
 
 		</div>
 		</td>
@@ -447,7 +447,7 @@
       
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id:</label>
-            <input type="text" class="form-control" id="idAdd" name="id">
+            <input type="text" class="form-control" id="idAdd" name="id" readonly>
           </div>
           
              <div class="form-group">
@@ -458,22 +458,26 @@
             th:value="${country.id}"
             th:text ="${country.description}"></option>
             </select>
-            <input type="text" class="form-control" id="descriptionadd" name="description">
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsnAdd" name="details" required>
           </div>
           
             <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="descriptionadd" name="description">
+            <input type="text" class="form-control" id="nameAdd" name="name" required>
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capitaladd" name="capital">
+            <input type="text" class="form-control" id="capitalAdd" name="capital" required>
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="codeadd" name="code">
+            <input type="text" class="form-control" id="codeAdd" name="code" required>
           </div>
           
            <div class="form-group">
@@ -497,14 +501,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update </h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit State </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       
       <div class="modal-body">
-        <form th:action="@{/countries/update}" method="put">
+        <form th:action="@{/states/update}" method="put">
       
        <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id:</label>
@@ -512,34 +516,43 @@
           </div>
           
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="descriptionEdit" name="description">
+            <label for="recipient-name" class="col-form-label">Country:</label>
+            <select class="form-control" id="addCountryEdit" name="countryId" ><!--this is the key stateid -->
+            <option>-SELECT-</option>
+            <option th:each="country : ${countries}"
+            th:value="${country.id}"
+            th:text ="${country.details}">
+            </option>
+            </select>
+
+          </div>
+          
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="nameEdit" name="name" required>
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsEdit" name="details" required>
+          </div>
+          
+           
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Code:</label>
+            <input type="text" class="form-control" id="codeEdit" name="code" required>
           </div>
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capitalEdit" name="capital">
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="codeEdit" name="code">
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Continent:</label>
-            <input type="text" class="form-control" id="continentEdit" name="continent">
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nationality:</label>
-            <input type="text" class="form-control" id="nationalityEdit" name="nationality">
+            <input type="text" class="form-control" id="capitalEdit" name="capital" required>
           </div>
           
            <div class="form-group">
              <button type="submit" class="btn btn-primary">Submit </button>
           </div>
-        
+          
         </form>
       </div>
       
@@ -548,7 +561,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
  <!-- Edit Modal section End -->  
 
     <!-- Details Modal section Start -->  
@@ -572,7 +585,7 @@
              <div class="form-group">
             <label for="recipient-name" class="col-form-label">Country:</label>
             <select class="form-control" id="addCountryDetails" name="countryId" ><!--this is the key stateid -->
-            <option>-SELECT-</option>
+           <option>-SELECT-</option>
             <option th:each="country : ${countries}"
             th:value="${country.id}"
             th:text ="${country.description}">
@@ -642,6 +655,7 @@
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
+    <script src="js/state.js"></script>
 
 
 </body>
