@@ -4,13 +4,15 @@ $('document').ready(function(){
 	     	 event.preventDefault();
 			var href=$(this).attr('href');
 		
-		$.get(href,function(country){
-			$('#idEdit').val(country.id);
-			$('#capitalEdit').val(country.capital);
-			$('#descriptionEdit').val(country.description);
-			$('#codeEdit').val(country.code);
-			$('#continentEdit').val(country.continent);
-			$('#nationalityEdit').val(country.nationality);
+		$.get(href,function(state){
+			$('#idEdit').val(state.id);
+			$('#addCountryEdit').val(state.countryId);
+			$('#nameEdit').val(state.name);
+			$('#detailsEdit').val(state.details);
+			$('#capitalEdit').val(state.capital);
+			$('#codeEdit').val(state.code);
+
+
 		});		
 		$('#editModal').modal();
 	});
