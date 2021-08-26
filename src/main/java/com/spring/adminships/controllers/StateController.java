@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.adminships.models.*;
+import com.spring.adminships.services.CountryService;
 import com.spring.adminships.services.StateService;
 
 @Controller
@@ -20,11 +21,16 @@ public class StateController {
 
 	
 	  @Autowired private StateService stateService;
-	  
+	  @Autowired private CountryService countryService;
+
 	@GetMapping("/states")
 	public String getStates(Model model) {
 	  List <State> stateList =stateService.getStates();
 	  model.addAttribute("states",stateList);
+	  
+	  List <Country> countryList =countryService.getCountries();
+	  model.addAttribute("countries",countryList);
+	  
 		return "State";
 	}
 	
