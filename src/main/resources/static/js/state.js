@@ -6,7 +6,7 @@ $('document').ready(function(){
 		
 		$.get(href,function(state){
 			$('#idEdit').val(state.id);
-			$('#addCountryEdit').val(state.countryId);
+			$('#editCountryDetails').val(state.countryid);
 			$('#nameEdit').val(state.name);
 			$('#detailsEdit').val(state.details);
 			$('#capitalEdit').val(state.capital);

@@ -477,7 +477,7 @@
           
              <div class="form-group">
             <label for="recipient-name" class="col-form-label">Country:</label>
-            <select class="form-control" id="addCountryDetails" name="countryId" ><!--this is the key stateid -->
+            <select class="form-control" id="addCountryDetails" name="countryid" ><!--this is the key stateid -->
             <option>-SELECT-</option>
             <option th:each="country : ${countries}"
             th:value="${country.id}"
@@ -542,7 +542,7 @@
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Country:</label>
-            <select class="form-control" id="addCountryEdit" name="countryId" ><!--this is the key stateid -->
+            <select class="form-control" id="editCountryDetails" name="countryid" ><!--this is the key stateid -->
             <option>-SELECT-</option>
             <option th:each="country : ${countries}"
             th:value="${country.id}"
@@ -609,7 +609,7 @@
           
              <div class="form-group">
             <label for="recipient-name" class="col-form-label">Country:</label >
-            <select class="form-control" id="addCountryDetails" name="countryId" aria-readonly="true" ><!--this is the key stateid -->
+            <select class="form-control" id="detailCountryDetails" name="countryid" aria-readonly="true" ><!--this is the key stateid -->
            <option>-SELECT-</option >
             <option th:each="state : ${states}"
             th:value="${state.id}"
