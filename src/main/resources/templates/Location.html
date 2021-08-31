@@ -609,42 +609,47 @@
       
       <div class="modal-body">
        
-          <div class="form-group">
+           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id:</label>
             <input type="text" class="form-control" id="idDetails" name="id" readonly>
           </div>
           
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">City:</label>
+            <input type="text" class="form-control" id="cityDetails" name="city" readonly>
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Address:</label>
+            <input type="text" class="form-control" id="addressDetails" name="address" readonly>
+          </div>
+          
+          
              <div class="form-group">
             <label for="recipient-name" class="col-form-label">Country:</label >
-            <select class="form-control" id="addCountryDetails" name="countryId" aria-readonly="true" ><!--this is the key stateid -->
-           <option>-SELECT-</option >
+            <select class="form-control" id="countryDetailsDetails" name="countryid" aria-readonly="false"> 
+            <option aria-readonly="true">-SELECT-</option >
+            <option
+            th:each="country : ${countries}"
+            th:value="${country.id}"
+            th:text ="${country.description}"></option>
+            </select>
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">State:</label>
+            <select class="form-control" id="stateDetailsDetails" name="stateid" aria-readonly="true" >
+            <option aria-readonly="true">-SELECT-</option>
             <option th:each="state : ${states}"
             th:value="${state.id}"
-            th:text ="${state.details}">
-            </option>
-            </select >
-       
-          </div>
-          
-            <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="nameDetails" name="name" readonly>
+            th:text ="${state.name}"></option>
+            </select>
           </div>
           
            <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Capital:</label>
-            <input type="text" class="form-control" id="capitalDetails" name="capital" readonly>
-          </div>
-          
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code:</label>
-            <input type="text" class="form-control" id="codeDetails" name="code" readonly>
-          </div>  
-          
-          <div class="form-group">
             <label for="recipient-name" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsDetails" name="code" readonly>
-          </div>  
+            <input type="text" class="form-control" id="detailsDetails" name="details" readonly>
+          </div>
      
       </div>
       

@@ -23,9 +23,10 @@ $('document').ready(function(){
 		
 		$.get(href,function(location){
 			$('#idDetails').val(location.id);
-			$('#capitalDetails').val(location.city);
-			$('#nameDetails').val(location.name);
-			$('#codeDetails').val(location.code);
+			$('#cityDetails').val(location.city);
+			$('#addressDetails').val(location.address);
+			$('#countryDetailsDetails').val(location.countryid);
+			$('#stateDetailsDetails').val(location.stateid);
 			$('#detailsDetails').val(location.details);
 		});		
 		$('#detailsModal').modal();
