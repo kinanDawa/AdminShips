@@ -389,7 +389,7 @@
                       </a>
             <ul class="sub">
               <li><a class="" th:href="@{/countries}">Countries</a></li>
-              <li><a class="" th:href="@{/states}"><span>States</span></a></li>
+              <li><a class="" th:href="@{/locations}"><span>States</span></a></li>
               <li><a class="" th:href="@{/locations}"><span>Locations</span></a></li>             
             </ul>
           </li>
@@ -417,6 +417,36 @@
         
         <h1> List of Locations </h1>
         
+         <div class="row"> 
+        <div class="col-lg-12"> 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add State</button> 
+        
+        <table class="table"> 
+                <thead> 
+          <tr>
+            <th><i class="icon_table"></i> Id</th>
+            <th><i class="icon_table"></i> City</th>
+            <th><i class="icon_table"> </i> Address</th>                    
+            <th><i class="icon_cogs"></i> Action</th>
+          </tr>
+        </thead>
+    <tbody>
+      <tr th:each="location:${locations}"> 
+        <td th:text="${location.id}"></td>
+        <td th:text="${location.city}"></td>
+        <td th:text="${location.address}"></td>
+		<td>
+		<div class="btn-group"> 
+		<a th:href="@{/locations/findById/(id=${location.id})}" class ="btn btn-primary" id="editButton" ><i class="icon_pencil-edit"></i></a>
+		<a th:href="@{/locations/findById/(id=${location.id})}" class ="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+		<a th:href="@{/locations/delete/(id=${location.id})}" class ="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+
+		</div>
+		</td>
+ 
+      </tr>
+     </tbody>
+         </table>
         <!-- page end-->
       </section>
     </section>
@@ -424,6 +454,9 @@
     
   </section>
   <!-- container section end -->
+  
+  
+  
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
