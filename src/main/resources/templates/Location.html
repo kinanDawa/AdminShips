@@ -638,8 +638,8 @@
           
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">State:</label>
-            <select class="form-control" id="stateDetailsDetails" name="stateid" aria-readonly="true" >
-            <option aria-readonly="true">-SELECT-</option>
+            <select class="form-control" id="stateDetailsDetails" name="stateid" >
+            <option>-SELECT-</option>
             <option th:each="state : ${states}"
             th:value="${state.id}"
             th:text ="${state.name}"></option>
