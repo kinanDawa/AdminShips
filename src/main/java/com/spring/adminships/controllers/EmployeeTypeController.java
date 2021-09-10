@@ -11,19 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.spring.adminships.models.Country;
 import com.spring.adminships.models.EmployeeType;
-import com.spring.adminships.models.State;
-import com.spring.adminships.services.CountryService;
 import com.spring.adminships.services.EmployeeTypeService;
-import com.spring.adminships.services.StateService;
 
 @Controller
 public class EmployeeTypeController {
 
 	  @Autowired private EmployeeTypeService employeeTypeService;
-
 
 	@GetMapping("/employeeTypes")
 	public String getEmployeeTypes(Model model) {
