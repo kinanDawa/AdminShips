@@ -11,61 +11,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.spring.adminships.models.VehicleStatus;
+import com.spring.adminships.services.VehicleStatusService;
 
-import com.spring.adminships.models.Country;
-import com.spring.adminships.models.Location;
-import com.spring.adminships.models.State;
-import com.spring.adminships.services.CountryService;
-import com.spring.adminships.services.LocationService;
-import com.spring.adminships.services.StateService;
 
 @Controller
 public class VehicleStatusController {
 	
 
-	  @Autowired private LocationService vehicleStatusService;
-	  @Autowired private CountryService countryService;
-	  @Autowired private StateService stateService;
+	  @Autowired private VehicleStatusService vehicleStatusService;
 
-	@GetMapping("/vehicleStatuss")
-	public String getLocations(Model model) {
-	  List <Location> vehicleStatusList =vehicleStatusService.getLocations();
+	@GetMapping("/vehicleStatuses")
+	public String getVehicleStatuss(Model model) {
+	  List <VehicleStatus> vehicleStatusList =vehicleStatusService.getVehicleStatuses();
 	  model.addAttribute("vehicleStatuss",vehicleStatusList);
-	  
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-	  
-	  List <State> stateList =stateService.getStates();
-	  model.addAttribute("states",stateList);
-	  
-		return "Location";
+		return "VehicleStatus";
 	}
 	
-	  @PostMapping("/vehicleStatuss/addNew") 
-	  public String addNew(Location vehicleStatus) {
+	  @PostMapping("/vehicleStatuses/addNew") 
+	  public String addNew(VehicleStatus vehicleStatus) {
 	  vehicleStatusService.save(vehicleStatus); 
-	  return "redirect:/vehicleStatuss"; }
+	  return "redirect:/vehicleStatuses"; }
 
 	// after getting this Id we don't want it to return a JSON
 	// or redirect to a page that will display a JSON so only return it and capture
 	// it
 	
-	  @RequestMapping("/vehicleStatuss/findById")
+	  @RequestMapping("/vehicleStatuses/findById")
 	  @ResponseBody
-	  public Optional<Location> findById(int id) { 
+	  public Optional<VehicleStatus> findById(int id) { 
 		  return vehicleStatusService.findById(id);
 	  }
 	  
-	  @RequestMapping(value= "/vehicleStatuss/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Location vehicleStatus) {
+	  @RequestMapping(value= "/vehicleStatuses/update", method= {RequestMethod.PUT,RequestMethod.GET})
+	  public String update(VehicleStatus vehicleStatus) {
 		  vehicleStatusService.save(vehicleStatus); 
-		  return "redirect:/vehicleStatuss"; 
+		  return "redirect:/vehicleStatuses"; 
 		  }
 	  
-	  @RequestMapping(value= "/vehicleStatuss/delete", method= {RequestMethod.DELETE,RequestMethod.GET})
+	  @RequestMapping(value= "/vehicleStatuses/delete", method= {RequestMethod.DELETE,RequestMethod.GET})
 	  public String delete(int id) {
 		  vehicleStatusService.delete(id); 
-		  return "redirect:/vehicleStatus"; 
+		  return "redirect:/vehicleStatuses"; 
 		  }
 
 }

@@ -16,7 +16,7 @@ public class VehicleStatusService {
 	private VehicleStatusRepository vehicleStatusRepository;
 	
 	//Get All VehicleStatuss
-	public List<VehicleStatus> findAll(){
+	public List<VehicleStatus> getVehicleStatuses(){
 		return vehicleStatusRepository.findAll();
 	}	
 	
