@@ -13,35 +13,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.adminships.models.Country;
-import com.spring.adminships.models.Location;
+import com.spring.adminships.models.EmployeeType;
 import com.spring.adminships.models.State;
 import com.spring.adminships.services.CountryService;
-import com.spring.adminships.services.LocationService;
+import com.spring.adminships.services.EmployeeTypeService;
 import com.spring.adminships.services.StateService;
 
 @Controller
 public class EmployeeTypeController {
 
-	  @Autowired private LocationService employeeTypeService;
-	  @Autowired private CountryService countryService;
-	  @Autowired private StateService stateService;
+	  @Autowired private EmployeeTypeService employeeTypeService;
+
 
 	@GetMapping("/employeeTypes")
-	public String getLocations(Model model) {
-	  List <Location> employeeTypeList =employeeTypeService.getLocations();
+	public String getEmployeeTypes(Model model) {
+	  List <EmployeeType> employeeTypeList =employeeTypeService.getEmployeeTypes();
 	  model.addAttribute("employeeTypes",employeeTypeList);
-	  
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-	  
-	  List <State> stateList =stateService.getStates();
-	  model.addAttribute("states",stateList);
-	  
-		return "Location";
+		return "EmployeeType";
 	}
 	
 	  @PostMapping("/employeeTypes/addNew") 
-	  public String addNew(Location employeeType) {
+	  public String addNew(EmployeeType employeeType) {
 	  employeeTypeService.save(employeeType); 
 	  return "redirect:/employeeTypes"; }
 
@@ -51,12 +43,12 @@ public class EmployeeTypeController {
 	
 	  @RequestMapping("/employeeTypes/findById")
 	  @ResponseBody
-	  public Optional<Location> findById(int id) { 
+	  public Optional<EmployeeType> findById(int id) { 
 		  return employeeTypeService.findById(id);
 	  }
 	  
 	  @RequestMapping(value= "/employeeTypes/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Location employeeType) {
+	  public String update(EmployeeType employeeType) {
 		  employeeTypeService.save(employeeType); 
 		  return "redirect:/employeeTypes"; 
 		  }
