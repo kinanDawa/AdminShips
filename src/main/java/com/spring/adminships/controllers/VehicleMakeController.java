@@ -11,38 +11,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.spring.adminships.models.VehicleMake;
+import com.spring.adminships.services.VehicleMakeService;
 
-import com.spring.adminships.models.Country;
-import com.spring.adminships.models.Location;
-import com.spring.adminships.models.State;
-import com.spring.adminships.services.CountryService;
-import com.spring.adminships.services.LocationService;
-import com.spring.adminships.services.StateService;
 
 @Controller
 public class VehicleMakeController {
 	
 
-	  @Autowired private LocationService vehicleMakeService;
-	  @Autowired private CountryService countryService;
-	  @Autowired private StateService stateService;
+	  @Autowired private VehicleMakeService vehicleMakeService;
 
 	@GetMapping("/vehicleMakes")
-	public String getLocations(Model model) {
-	  List <Location> vehicleMakeList =vehicleMakeService.getLocations();
-	  model.addAttribute("vehicleMakes",vehicleMakeList);
-	  
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-	  
-	  List <State> stateList =stateService.getStates();
-	  model.addAttribute("states",stateList);
-	  
-		return "Location";
+	public String getVehicleMakes(Model model) {
+	  List <VehicleMake> vehicleMakeList =vehicleMakeService.getVehicleMakes();
+	  model.addAttribute("vehicleMakes",vehicleMakeList);  
+		return "VehicleMake";
 	}
 	
 	  @PostMapping("/vehicleMakes/addNew") 
-	  public String addNew(Location vehicleMake) {
+	  public String addNew(VehicleMake vehicleMake) {
 	  vehicleMakeService.save(vehicleMake); 
 	  return "redirect:/vehicleMakes"; }
 
@@ -52,12 +39,12 @@ public class VehicleMakeController {
 	
 	  @RequestMapping("/vehicleMakes/findById")
 	  @ResponseBody
-	  public Optional<Location> findById(int id) { 
+	  public Optional<VehicleMake> findById(int id) { 
 		  return vehicleMakeService.findById(id);
 	  }
 	  
 	  @RequestMapping(value= "/vehicleMakes/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Location vehicleMake) {
+	  public String update(VehicleMake vehicleMake) {
 		  vehicleMakeService.save(vehicleMake); 
 		  return "redirect:/vehicleMakes"; 
 		  }
@@ -65,7 +52,7 @@ public class VehicleMakeController {
 	  @RequestMapping(value= "/vehicleMakes/delete", method= {RequestMethod.DELETE,RequestMethod.GET})
 	  public String delete(int id) {
 		  vehicleMakeService.delete(id); 
-		  return "redirect:/vehicleMake"; 
+		  return "redirect:/vehicleMakes"; 
 		  }
 
 }
