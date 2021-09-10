@@ -16,7 +16,7 @@ public class VehicleTypeService {
 	private VehicleTypeRepository vehicleTypeRepository;
 	
 	//Get All VehicleTypes
-	public List<VehicleType> findAll(){
+	public List<VehicleType> getVehicleTypes(){
 		return vehicleTypeRepository.findAll();
 	}	
 	

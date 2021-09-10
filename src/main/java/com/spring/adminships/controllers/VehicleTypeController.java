@@ -13,36 +13,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.adminships.models.Country;
-import com.spring.adminships.models.Location;
+import com.spring.adminships.models.VehicleType;
 import com.spring.adminships.models.State;
 import com.spring.adminships.services.CountryService;
-import com.spring.adminships.services.LocationService;
+import com.spring.adminships.services.VehicleTypeService;
 import com.spring.adminships.services.StateService;
 
 @Controller
 public class VehicleTypeController {
 	
 
-	  @Autowired private LocationService vehicleTypeService;
-	  @Autowired private CountryService countryService;
-	  @Autowired private StateService stateService;
+	  @Autowired private VehicleTypeService vehicleTypeService;
 
 	@GetMapping("/vehicleTypes")
-	public String getLocations(Model model) {
-	  List <Location> vehicleTypeList =vehicleTypeService.getLocations();
-	  model.addAttribute("vehicleTypes",vehicleTypeList);
-	  
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-	  
-	  List <State> stateList =stateService.getStates();
-	  model.addAttribute("states",stateList);
-	  
-		return "Location";
+	public String getVehicleTypes(Model model) {
+	  List <VehicleType> vehicleTypeList =vehicleTypeService.getVehicleTypes();
+	  model.addAttribute("vehicleTypes",vehicleTypeList);	  
+		return "VehicleType";
 	}
 	
 	  @PostMapping("/vehicleTypes/addNew") 
-	  public String addNew(Location vehicleType) {
+	  public String addNew(VehicleType vehicleType) {
 	  vehicleTypeService.save(vehicleType); 
 	  return "redirect:/vehicleTypes"; }
 
@@ -52,12 +43,12 @@ public class VehicleTypeController {
 	
 	  @RequestMapping("/vehicleTypes/findById")
 	  @ResponseBody
-	  public Optional<Location> findById(int id) { 
+	  public Optional<VehicleType> findById(int id) { 
 		  return vehicleTypeService.findById(id);
 	  }
 	  
 	  @RequestMapping(value= "/vehicleTypes/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Location vehicleType) {
+	  public String update(VehicleType vehicleType) {
 		  vehicleTypeService.save(vehicleType); 
 		  return "redirect:/vehicleTypes"; 
 		  }
