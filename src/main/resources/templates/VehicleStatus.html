@@ -416,15 +416,44 @@
         <!-- page start-->
         Page content goes here
         
-        <h1> List of Vehicles Status </h1>
+               <div class="row"> 
+        <div class="col-lg-12"> 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add State</button> 
         
-        <!-- page end-->
+        <table class="table"> 
+                <thead> 
+          <tr>
+            <th><i class="icon_table"></i> Id</th>
+            <th><i class="icon_table"></i> Name</th>
+            <th><i class="icon_table"> </i> Details</th>                    
+            <th><i class="icon_cogs"></i> Actions</th>
+          </tr>
+        </thead>
+    <tbody>
+      <tr th:each="state:${states}"> 
+        <td th:text="${state.id}"></td>
+        <td th:text="${state.name}"></td>
+        <td th:text="${state.details}"></td>
+		<td>
+		<div class="btn-group"> 
+		<a th:href="@{/states/findById/(id=${state.id})}" class ="btn btn-primary" id="editButton" ><i class="icon_pencil-edit"></i></a>
+		<a th:href="@{/states/findById/(id=${state.id})}" class ="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+		<a th:href="@{/states/delete/(id=${state.id})}" class ="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+
+		</div>
+		</td>
+ 
+      </tr>
+     </tbody>
+         </table>
+        
+       <!-- page end-->
       </section>
     </section>
     <!--main content end-->
-    
   </section>
-  <!-- container section end -->
+  
+  
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>

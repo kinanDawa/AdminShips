@@ -4,15 +4,10 @@ $('document').ready(function(){
 	     	 event.preventDefault();
 			var href=$(this).attr('href');
 		
-		$.get(href,function(location){
-			$('#idEdit').val(location.id);
-		    $('#cityEdit').val(location.city);
-			$('#editCountryDetails').val(location.countryid);
-			$('#editStateDetails').val(location.stateid);
-			$('#detailsEdit').val(location.details);
-			$('#addressEdit').val(location.address);
-
-
+		$.get(href,function(jobTitle){
+			$('#idEdit').val(jobTitle.id);
+		    $('#cityEdit').val(jobTitle.city);
+			$('#detailsEdit').val(jobTitle.details);
 		});		
 		$('#editModal').modal();
 	});
@@ -21,13 +16,9 @@ $('document').ready(function(){
 	     	 event.preventDefault();
 			var href=$(this).attr('href');
 		
-		$.get(href,function(location){
-			$('#idDetails').val(location.id);
-			$('#cityDetails').val(location.city);
-			$('#addressDetails').val(location.address);
-			$('#countryDetailsDetails').val(location.countryid);
-			$('#stateDetailsDetails').val(location.stateid);
-			$('#detailsDetails').val(location.details);
+		$.get(href,function(jobTitle){
+			$('#idDetails').val(jobTitle.id);
+			$('#detailsDetails').val(jobTitle.details);
 		});		
 		$('#detailsModal').modal();
 	});

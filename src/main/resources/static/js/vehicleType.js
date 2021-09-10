@@ -4,15 +4,10 @@ $('document').ready(function(){
 	     	 event.preventDefault();
 			var href=$(this).attr('href');
 		
-		$.get(href,function(location){
-			$('#idEdit').val(location.id);
-		    $('#cityEdit').val(location.city);
-			$('#editCountryDetails').val(location.countryid);
-			$('#editStateDetails').val(location.stateid);
-			$('#detailsEdit').val(location.details);
-			$('#addressEdit').val(location.address);
-
-
+		$.get(href,function(vehicleType){
+			$('#idEdit').val(vehicleType.id);
+		    $('#cityEdit').val(vehicleType.city);
+			$('#detailsEdit').val(vehicleType.details);
 		});		
 		$('#editModal').modal();
 	});
@@ -21,13 +16,9 @@ $('document').ready(function(){
 	     	 event.preventDefault();
 			var href=$(this).attr('href');
 		
-		$.get(href,function(location){
-			$('#idDetails').val(location.id);
-			$('#cityDetails').val(location.city);
-			$('#addressDetails').val(location.address);
-			$('#countryDetailsDetails').val(location.countryid);
-			$('#stateDetailsDetails').val(location.stateid);
-			$('#detailsDetails').val(location.details);
+		$.get(href,function(vehicleType){
+			$('#idDetails').val(vehicleType.id);
+			$('#detailsDetails').val(vehicleType.details);
 		});		
 		$('#detailsModal').modal();
 	});
