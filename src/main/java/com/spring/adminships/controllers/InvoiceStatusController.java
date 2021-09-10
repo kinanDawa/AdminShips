@@ -11,38 +11,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.spring.adminships.models.Country;
-import com.spring.adminships.models.Location;
-import com.spring.adminships.models.State;
-import com.spring.adminships.services.CountryService;
-import com.spring.adminships.services.LocationService;
-import com.spring.adminships.services.StateService;
+import com.spring.adminships.models.InvoiceStatus;
+import com.spring.adminships.services.InvoiceStatusService;
 
 @Controller
 public class InvoiceStatusController {
 	
 
-	  @Autowired private LocationService invoiceStatusService;
-	  @Autowired private CountryService countryService;
-	  @Autowired private StateService stateService;
+	  @Autowired private InvoiceStatusService invoiceStatusService;
 
-	@GetMapping("/invoiceStatuss")
-	public String getLocations(Model model) {
-	  List <Location> invoiceStatusList =invoiceStatusService.getLocations();
-	  model.addAttribute("invoiceStatuss",invoiceStatusList);
-	  
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-	  
-	  List <State> stateList =stateService.getStates();
-	  model.addAttribute("states",stateList);
-	  
-		return "Location";
+	@GetMapping("/invoiceStatuses")
+	public String getInvoiceStatuss(Model model) {
+	  List <InvoiceStatus> invoiceStatusList =invoiceStatusService.getInvoiceStatuses();
+	  model.addAttribute("invoiceStatuss",invoiceStatusList);  
+		return "InvoiceStatus";
 	}
 	
 	  @PostMapping("/invoiceStatuss/addNew") 
-	  public String addNew(Location invoiceStatus) {
+	  public String addNew(InvoiceStatus invoiceStatus) {
 	  invoiceStatusService.save(invoiceStatus); 
 	  return "redirect:/invoiceStatuss"; }
 
@@ -52,20 +38,20 @@ public class InvoiceStatusController {
 	
 	  @RequestMapping("/invoiceStatuss/findById")
 	  @ResponseBody
-	  public Optional<Location> findById(int id) { 
+	  public Optional<InvoiceStatus> findById(int id) { 
 		  return invoiceStatusService.findById(id);
 	  }
 	  
 	  @RequestMapping(value= "/invoiceStatuss/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Location invoiceStatus) {
+	  public String update(InvoiceStatus invoiceStatus) {
 		  invoiceStatusService.save(invoiceStatus); 
-		  return "redirect:/invoiceStatuss"; 
+		  return "redirect:/invoiceStatuses"; 
 		  }
 	  
 	  @RequestMapping(value= "/invoiceStatuss/delete", method= {RequestMethod.DELETE,RequestMethod.GET})
 	  public String delete(int id) {
 		  invoiceStatusService.delete(id); 
-		  return "redirect:/invoiceStatuss"; 
+		  return "redirect:/invoiceStatuses"; 
 		  }
 
 }

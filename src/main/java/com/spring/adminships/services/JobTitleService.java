@@ -16,7 +16,7 @@ public class JobTitleService {
 	private JobTitleRepository jobTitleRepository;
 	
 	//Get All JobTitles
-	public List<JobTitle> findAll(){
+	public List<JobTitle> getJobTitles(){
 		return jobTitleRepository.findAll();
 	}	
 	

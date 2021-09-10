@@ -16,7 +16,7 @@ public class VehicleModelService {
 	private VehicleModelRepository vehicleModelRepository;
 	
 	//Get All VehicleModels
-	public List<VehicleModel> findAll(){
+	public List<VehicleModel> getVehicleModels(){
 		return vehicleModelRepository.findAll();
 	}	
 	

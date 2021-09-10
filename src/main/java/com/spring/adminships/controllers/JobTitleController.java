@@ -11,38 +11,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.spring.adminships.models.Country;
-import com.spring.adminships.models.Location;
-import com.spring.adminships.models.State;
-import com.spring.adminships.services.CountryService;
-import com.spring.adminships.services.LocationService;
-import com.spring.adminships.services.StateService;
+import com.spring.adminships.models.JobTitle;
+import com.spring.adminships.services.JobTitleService;
 
 @Controller
 public class JobTitleController {
 	
 
-	  @Autowired private LocationService jobTitleService;
-	  @Autowired private CountryService countryService;
-	  @Autowired private StateService stateService;
+	  @Autowired private JobTitleService jobTitleService;
 
 	@GetMapping("/jobTitles")
-	public String getLocations(Model model) {
-	  List <Location> jobTitleList =jobTitleService.getLocations();
+	public String getJobTitles(Model model) {
+	  List <JobTitle> jobTitleList =jobTitleService.getJobTitles();
 	  model.addAttribute("jobTitles",jobTitleList);
-	  
-	  List <Country> countryList =countryService.getCountries();
-	  model.addAttribute("countries",countryList);
-	  
-	  List <State> stateList =stateService.getStates();
-	  model.addAttribute("states",stateList);
-	  
-		return "Location";
+		return "JobTitle";
 	}
 	
 	  @PostMapping("/jobTitles/addNew") 
-	  public String addNew(Location jobTitle) {
+	  public String addNew(JobTitle jobTitle) {
 	  jobTitleService.save(jobTitle); 
 	  return "redirect:/jobTitles"; }
 
@@ -52,12 +38,12 @@ public class JobTitleController {
 	
 	  @RequestMapping("/jobTitles/findById")
 	  @ResponseBody
-	  public Optional<Location> findById(int id) { 
+	  public Optional<JobTitle> findById(int id) { 
 		  return jobTitleService.findById(id);
 	  }
 	  
 	  @RequestMapping(value= "/jobTitles/update", method= {RequestMethod.PUT,RequestMethod.GET})
-	  public String update(Location jobTitle) {
+	  public String update(JobTitle jobTitle) {
 		  jobTitleService.save(jobTitle); 
 		  return "redirect:/jobTitles"; 
 		  }
